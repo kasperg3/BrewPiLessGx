@@ -18,6 +18,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          board: [ESP32_2432S028R, ESP32_2432S032C, ESP32_2432S032C_lgfx, ESP32_17320S019N]
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +32,7 @@ jobs:
           path: |
             ~/.cache/pip
             ~/.platformio/.cache
-          key: ${{ runner.os }}-pio-cyd-klipper
+          key: ${{ runner.os }}-pio-brewpiless
 
       - uses: actions/setup-python@v4
         with:
@@ -40,13 +43,12 @@ jobs:
 
       - name: Build PlatformIO Project
         run: |
-            pio run
-
+            pio run -e ${{ matrix.board }}
       - name: Upload artifact 
         uses: actions/upload-artifact@v3
         with:
           name: firmware
-          path: ./out 
+          path: .pio/build/${{ matrix.board }}/firmware.bin
 
       - name: Upload GitHub Page Artifact
         uses: actions/upload-pages-artifact@v2
