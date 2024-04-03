@@ -1,0 +1,68 @@
+name: PlatformIO CI
+
+permissions:
+    pages: write
+    id-token: write
+
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          board: [ESP32_2432S028R, ESP32_2432S032C, ESP32_2432S032C_lgfx, ESP32_17320S019N]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os }}-pio-brewpiless
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install PlatformIO Core
+        run: pip install --upgrade platformio esptool
+
+      - name: Build PlatformIO Project
+        run: |
+            pio run -e ${{ matrix.board }}
+      - name: Upload artifact 
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware-${{ matrix.board }}.bin
+          path: .pio/build/${{ matrix.board }}/firmware.bin
+
+      - name: Upload GitHub Page Artifact
+        uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'release' && github.event.action == 'created'
+    steps:
+      - name: Print GitHub event name
+        run: |
+          echo "${{ github.event_name }}"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+  

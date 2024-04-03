@@ -48,7 +48,7 @@ lv_obj_t *ui_btnOriginalGravity;
 void ui_screenTempControl_screen_init(void);
 void ui_event_screenTempControl( lv_event_t * e);
 lv_obj_t *ui_screenTempControl;
-void ui_event_btnTempControlBack( lv_event_t * e);
+void ui_event_back( lv_event_t * e);
 lv_obj_t *ui_btnTempControlBack;
 void ui_event_sldMode( lv_event_t * e);
 lv_obj_t *ui_sldMode;
@@ -65,7 +65,6 @@ lv_obj_t *ui_Image1;
 void ui_screenSetting_screen_init(void);
 void ui_event_screenSetting( lv_event_t * e);
 lv_obj_t *ui_screenSetting;
-void ui_event_btnSettingBack( lv_event_t * e);
 lv_obj_t *ui_btnSettingBack;
 void ui_event_swWiFi( lv_event_t * e);
 lv_obj_t *ui_swWiFi;
@@ -97,6 +96,11 @@ const lv_img_dsc_t *ui_imgset_control_[1] = {&ui_img_control_320240_png};
 //const lv_img_dsc_t *ui_imgset_main_[1] = {&ui_img_main_320240_png};
 const lv_img_dsc_t *ui_imgset_setting_[1] = {&ui_img_setting_320240_png};
 const lv_img_dsc_t *ui_imgset_main_3040v[1] = {&ui_img_main_320240v2_png};
+
+// SCREEN: ui_screenHistoryChart
+void ui_screenChart_screen_init(void);
+lv_obj_t *ui_screenChart;
+lv_obj_t *ui_btnChartBack;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16
@@ -132,7 +136,10 @@ if ( event_code == LV_EVENT_CLICKED) {
 }
 void ui_event_btnGravity( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
-if ( event_code == LV_EVENT_CLICKED) {
+ if(event_code == LV_EVENT_LONG_PRESSED) {
+      openGravityChart( e );
+    }
+else if ( event_code == LV_EVENT_SHORT_CLICKED) {
       openEditGravity( e );
 }
 }
@@ -148,7 +155,7 @@ if ( event_code == LV_EVENT_SCREEN_LOAD_START) {
       onScreenTempControlLoadStart( e );
 }
 }
-void ui_event_btnTempControlBack( lv_event_t * e) {
+void ui_event_back( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 if ( event_code == LV_EVENT_CLICKED) {
       _ui_screen_change( &ui_screenMain, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, &ui_screenMain_screen_init);
@@ -173,12 +180,6 @@ void ui_event_screenSetting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 if ( event_code == LV_EVENT_SCREEN_LOAD_START) {
       onScreenSettingLoadStart( e );
-}
-}
-void ui_event_btnSettingBack( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
-if ( event_code == LV_EVENT_CLICKED) {
-      _ui_screen_change( &ui_screenMain, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, &ui_screenMain_screen_init);
 }
 }
 void ui_event_swWiFi( lv_event_t * e) {
@@ -223,6 +224,7 @@ ui_screenMain_screen_init();
 ui_screenTempControl_screen_init();
 ui_screenSetting_screen_init();
 ui_screenInput_screen_init();
+ui_screenChart_screen_init();
 ui____initial_actions0 = lv_obj_create(NULL);
 lv_disp_load_scr( ui_screenMain);
 }

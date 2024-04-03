@@ -21,10 +21,12 @@ extern const uint8_t skin_brwpi_start[] asm("_binary_src_skins_skin_brewpi_json_
 extern const uint8_t skin_brwpi_end[] asm("_binary_src_skins_skin_brewpi_json_end");
 extern const uint8_t skin_info_start[] asm("_binary_src_skins_skin_info_json_start");
 extern const uint8_t skin_info_end[] asm("_binary_src_skins_skin_info_json_end");
+// extern const uint8_t skin_pill_start[] asm("_binary_src_skins_skin_pill_json_start");
+// extern const uint8_t skin_pill_end[] asm("_binary_src_skins_skin_pill_json_end");
 
 static SkinEntry embeddedSkins[]={
+{"Infomation",skin_info_start},
 {"BrwPi",skin_brwpi_start},
-{"Infomation",skin_info_start}
 };
 #endif
 
