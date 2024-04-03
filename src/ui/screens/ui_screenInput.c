@@ -3,7 +3,7 @@
 // LVGL version: 8.3.6
 // Project name: S320240
 
-#include "../ui.h"
+#include "ui.h"
 
 void ui_screenInput_screen_init(void)
 {

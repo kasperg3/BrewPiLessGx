@@ -39,6 +39,7 @@ extern "C" {
 #define JsonKey_Settings "set"
 #define JsonKey_InputGravit "ig"
 #define JsonKey_InputOriginalGravity "iog"
+#define JsonKey_viewGravity "vog"
 
 // properties
 #define POS_x "x"

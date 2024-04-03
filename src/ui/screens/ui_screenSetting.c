@@ -74,7 +74,7 @@ lv_obj_set_x( ui_btnSearchNetwork, 134 );
 lv_obj_set_y( ui_btnSearchNetwork, -43 );
 lv_obj_set_align( ui_btnSearchNetwork, LV_ALIGN_CENTER );
 
-lv_obj_add_event_cb(ui_btnSettingBack, ui_event_btnSettingBack, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_btnSettingBack, ui_event_back, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_swWiFi, ui_event_swWiFi, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_swApMode, ui_event_swApMode, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_btnSearchNetwork, ui_event_btnSearchNetwork, LV_EVENT_ALL, NULL);

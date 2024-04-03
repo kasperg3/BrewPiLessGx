@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-    #include "lvgl.h"
+#include "lvgl.h"
 
 #include "ui_helpers.h"
 #include "ui_events.h"
@@ -56,7 +56,7 @@ extern lv_obj_t *ui_btnOriginalGravity;
 void ui_screenTempControl_screen_init(void);
 void ui_event_screenTempControl( lv_event_t * e);
 extern lv_obj_t *ui_screenTempControl;
-void ui_event_btnTempControlBack( lv_event_t * e);
+void ui_event_back( lv_event_t * e);
 extern lv_obj_t *ui_btnTempControlBack;
 void ui_event_sldMode( lv_event_t * e);
 extern lv_obj_t *ui_sldMode;
@@ -70,7 +70,6 @@ extern lv_obj_t *ui_lbControlUnit;
 void ui_screenSetting_screen_init(void);
 void ui_event_screenSetting( lv_event_t * e);
 extern lv_obj_t *ui_screenSetting;
-void ui_event_btnSettingBack( lv_event_t * e);
 extern lv_obj_t *ui_btnSettingBack;
 void ui_event_swWiFi( lv_event_t * e);
 extern lv_obj_t *ui_swWiFi;
@@ -91,6 +90,10 @@ extern lv_obj_t *ui_kbInput;
 extern lv_obj_t *ui_lbInputLabel;
 extern lv_obj_t *ui_taInput;
 extern lv_obj_t *ui____initial_actions0;
+// SCREEN: ui_screenHistoryChart
+void ui_screenChart_screen_init(void);
+extern lv_obj_t *ui_screenChart;
+extern lv_obj_t *ui_btnChartBack;
 
 LV_IMG_DECLARE( ui_img_main_320240v2_png);   // assets/main_320240v2.png
 LV_IMG_DECLARE( ui_img_control_320240_png);   // assets/control_320240.png

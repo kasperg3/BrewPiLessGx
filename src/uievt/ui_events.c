@@ -478,6 +478,13 @@ void openEditGravity(lv_event_t * e)
 	openInputScreen(LV_SCR_LOAD_ANIM_MOVE_TOP, GRAVITY_TITLE,& currentGravityInput,&fromEditor2Main,InputTypeNumber,"");
 }
 
+
+void openGravityChart(lv_event_t * e)
+{
+    _ui_screen_change(&ui_screenChart, LV_SCR_LOAD_ANIM_MOVE_BOTTOM, 300, 0, &ui_screenChart_screen_init);
+}
+
+
 void openEditOriginalGravity(lv_event_t * e)
 {
 	// Your code here

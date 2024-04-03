@@ -76,7 +76,7 @@ lv_obj_set_y( ui_lbControlUnit, -8 );
 lv_obj_set_align( ui_lbControlUnit, LV_ALIGN_BOTTOM_MID );
 lv_label_set_text(ui_lbControlUnit,"C");
 
-lv_obj_add_event_cb(ui_btnTempControlBack, ui_event_btnTempControlBack, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_btnTempControlBack, ui_event_back, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_sldMode, ui_event_sldMode, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_arcTemperatureSet, ui_event_arcTemperatureSet, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_screenTempControl, ui_event_screenTempControl, LV_EVENT_ALL, NULL);
