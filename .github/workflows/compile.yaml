@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact 
         uses: actions/upload-artifact@v3
         with:
-          name: firmware
+          name: firmware-${{ matrix.board }}.bin
           path: .pio/build/${{ matrix.board }}/firmware.bin
 
       - name: Upload GitHub Page Artifact
