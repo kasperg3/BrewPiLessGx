@@ -547,10 +547,6 @@ static bool skinMainScreen(char* data){
         if(click.containsKey(JsonKey_InputOriginalGravity)){
             constructTransparentButton(&ui_btnOriginalGravity,&ui_event_btnOriginalGravity,click[JsonKey_InputOriginalGravity]);
         }
-        if(click.containsKey(JsonKey_viewGravity)){
-            constructTransparentButton(&ui_btnOriginalGravity,&ui_event_btnGravity,click[JsonKey_viewGravity]);
-        }
-
 
     }
     lv_obj_add_event_cb(ui_screenMain, ui_event_screenMain, LV_EVENT_ALL, NULL);
