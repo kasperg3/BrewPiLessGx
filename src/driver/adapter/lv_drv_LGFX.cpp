@@ -8,11 +8,15 @@
 
 #ifdef ESP32_2432S032C
 #include "LGFX_custom/LGFX_ESP32_2432S032C.h"
-#endif
+#endif // ESP32_2432S032C
 
 #ifdef WT32SC01PLUS
 #include "LGFX_custom/conf_WT32SCO1-Plus.h"
-#endif
+#endif // WT32SC01PLUS
+
+#ifdef ESP32_2432S028R
+#include "LGFX_custom/LGFX_ESP32_2432S028R.h"
+#endif // ESP32_2432S028R
 
 LGFX gfx;
 

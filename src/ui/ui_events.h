@@ -13,6 +13,7 @@ extern "C" {
 void onMainScreenLoadStart(lv_event_t * e);
 void onMainScreenHidden(lv_event_t * e);
 void openEditGravity(lv_event_t * e);
+void openGravityChart(lv_event_t * e);
 void openEditOriginalGravity(lv_event_t * e);
 void onScreenTempControlLoadStart(lv_event_t * e);
 void onModeChanged(lv_event_t * e);

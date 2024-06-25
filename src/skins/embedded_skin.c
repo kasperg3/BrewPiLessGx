@@ -21,8 +21,8 @@ extern const uint8_t skin_brwpi_start[] asm("_binary_src_skins_skin_brewpi3224_j
 extern const uint8_t skin_info_start[] asm("_binary_src_skins_skin_info3224_json_start");
 
 static SkinEntry embeddedSkins[]={
+{"Infomation",skin_info_start},
 {"BrwPi",skin_brwpi_start},
-{"Infomation",skin_info_start}
 };
 #endif
 

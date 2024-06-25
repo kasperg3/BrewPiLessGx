@@ -230,6 +230,10 @@ int   bplGravityDeviceRssi(){
 	return externalData.rssi();
 }
 
+void bplGravityHistory(float* data){
+    
+}
+
 uint32_t bplGetGravityDeviceUpdateLocalTime(){
 	return externalData.lastUpdate() + TimeKeeper.getTimezoneOffset();
 }
